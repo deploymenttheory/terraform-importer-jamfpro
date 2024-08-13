@@ -3,6 +3,11 @@ name: Terraform Apply
 on:
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: "/workload/terraform"
+
+
 jobs:
   terraform:
     name: Terraform
