@@ -7,7 +7,7 @@ on:
 env:
   TF_CLOUD_ORGANIZATION: "thejoeker"
   TF_API_TOKEN: "${{ secrets.TF_API_KEY }}"
-  TF_WORKSPACE: "terraform-jamfpro-demo"
+  TF_WORKSPACE: "lbgsandbox"
   CONFIG_DIRECTORY: "workload/terraform/jamfpro"
   PIPELINE_DEBUG: "true"
   # other env vars are set within tfcloud directly for within the tf workspace
