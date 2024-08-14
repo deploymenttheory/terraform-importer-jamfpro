@@ -10,15 +10,11 @@ CLIENT = jamfpy.init_client(
     safe_mode = True,
 )
 
-IMPORT_BLOCK = f"import {id = {resource_id}to = {resource_path}}"
 
-def import_block(type, name, id, path):
-    return IMPORT_BLOCK.format(
-        resource_id=id,
-        resource_path=path
-    )
+def import_block(resource_type, name, id):
+    return "import {\nid = " + id + "\nto = " + f"{resource_type}.{name}" + "\n}" 
 
-def get_scripts(exclude: list) -> list:
+def get_scripts(exclude: list = []) -> list:
     ids = []
     apiCall = CLIENT.pro.scripts.get_all()
     if not apiCall[0].ok:
@@ -31,14 +27,29 @@ def get_scripts(exclude: list) -> list:
     return ids
 
 
+def generate_imports(id_list: list, resource_type: str) -> list:
+    out_list = []
+    type_singular = resource_type.split("_", 1)[1]
+    count = 1
+    for i in id_list:
+        out_list.append(
+            import_block(
+                id=i,
+                resource_type=resource_type,
+                name=f"{type_singular}_{count}"
+            )
+        )
+        count += 1
+
+    return out_list
+
+
 def main():
-    print(get_scripts([]))
-    print(import_block("jamfpro_script", "script1", 54, "jamfpro_script.script1"))
+    hcl = generate_imports(get_scripts(), "jamfpro_script")
+    for i in hcl:
+        print(i)
 
 
 if __name__ == "__main__":
     main()
-    print(IMPORT_BLOCK.format(
-        id = 45,
-        path="jamfpro_script.script5"
-    ))
+    
