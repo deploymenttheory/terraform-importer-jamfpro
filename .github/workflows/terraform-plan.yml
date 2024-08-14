@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
     
 env:
-  TF_CLOUD_ORGANIZATION: "thejoeker" # Replace with your Terraform Cloud organization name
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_CLOUD_ORGANIZATION: "thejoeker"
+  TF_API_TOKEN: "${{ secrets.TF_API_KEY }}"
   TF_WORKSPACE: "terraform-jamfpro-demo"
   CONFIG_DIRECTORY: "workload/terraform/jamfpro"
   PIPELINE_DEBUG: "true"
