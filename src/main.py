@@ -1,4 +1,4 @@
-import importer
+import jamftf
 import jamfpy
 import os
 from pprint import pprint
@@ -16,7 +16,7 @@ CLIENT = jamfpy.init_client(
     token_exp_threshold_mins=5
 )
 
-magic = importer.Importer(CLIENT, use_jamf_name=False)
+magic = jamftf.Importer(CLIENT, use_jamf_name=False)
 hcl = magic.scripts.HCL()
 
 with open("new_tf_file_no_names.tf", "w") as f:
