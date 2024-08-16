@@ -16,9 +16,9 @@ CLIENT = jamfpy.init_client(
     token_exp_threshold_mins=5
 )
 
-magic = importer.Importer(CLIENT, use_jamf_name=True)
+magic = importer.Importer(CLIENT, use_jamf_name=False)
 hcl = magic.scripts.HCL()
 
-with open("new_tf_file.tf", "w") as f:
+with open("new_tf_file_no_names.tf", "w") as f:
     for i in hcl:
         f.write(i + "\n\n")

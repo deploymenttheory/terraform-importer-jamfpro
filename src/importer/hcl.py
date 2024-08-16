@@ -7,11 +7,7 @@ def import_block(resource_type, name, id):
     returns valid import block
     """
 
-    # if any([i for i in [resource_type, name, id] == ""]):
-    #     raise ValueError("one or more arguments are empty")
-
     return "import {\nid = " + str(id) + "\nto = " + f"{resource_type}.{name}" + "\n}" 
-
 
 
 def generate_imports(data: dict) -> list:
