@@ -1,1 +1,1 @@
-from .main import Importer
+from .importer import Importer

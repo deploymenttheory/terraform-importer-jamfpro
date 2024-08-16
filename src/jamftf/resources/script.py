@@ -1,7 +1,7 @@
 import jamfpy
 
-from .resource_types import RESOURCE_TYPE_SCRIPT
-from .hcl import generate_imports
+from .tf_type_strings import RESOURCE_TYPE_SCRIPT
+from ..hcl import generate_imports
 
 class Resource:
     def __init__(self, client: jamfpy.JamfTenant, use_jamf_name: bool = False):
