@@ -1,7 +1,6 @@
 import jamftf
 import jamfpy
 import os
-from pprint import pprint
 
 # Env Key
 ENV_KEY_TENANT_NAME = "PRO_TENANT_ID"
@@ -16,9 +15,8 @@ CLIENT = jamfpy.init_client(
     token_exp_threshold_mins=5
 )
 
-magic = jamftf.Importer(CLIENT, use_jamf_name=False)
-hcl = magic.scripts.HCL()
 
-with open("new_tf_file_no_names.tf", "w") as f:
-    for i in hcl:
-        f.write(i + "\n\n")
+scripts = jamftf.Script()
+importer = jamftf.Importer(CLIENT, targetted=[scripts])
+
+print(importer.HCL()) 
