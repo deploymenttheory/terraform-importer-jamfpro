@@ -2,7 +2,6 @@ jamftf_target_version=main
 jamfpy_target_version=main
 
 ########
-cd /Users/joseph/github/importer-terraform-jamfpro
 jamftf_url="https://github.com/deploymenttheory/jamftf-python-terraform-importer"
 jamfpy_url="https://github.com/thejoeker12/jamfpy"
 

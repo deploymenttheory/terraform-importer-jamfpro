@@ -15,11 +15,12 @@ CLIENT = jamfpy.init_client(
     token_exp_threshold_mins=5
 )
 
-scripts = jamftf.Script()
-categories = jamftf.Categories()
+script_options = jamftf.Options(use_resource_type_as_name=False)
+
 importer = jamftf.Importer(CLIENT, targetted=[
-    jamftf.Script(),
+    jamftf.Scripts(options=script_options),
     jamftf.Categories()
 ])
 
-print(importer.HCL()) 
+
+print(importer.HCL())
