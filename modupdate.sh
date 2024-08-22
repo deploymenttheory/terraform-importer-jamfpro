@@ -12,5 +12,8 @@ jamfpy_pip_target="git+$jamfpy_url@$jamfpy_target_version"
 # pip uninstall jamftf --no-input
 # pip uninstall jamfpy --no-input
 
-pip install $jamftf_pip_target
-pip install $jamfpy_pip_target
+# JAMF TF
+pip install --no-cache-dir --upgrade --force-reinstall $jamftf_pip_target
+
+# JAMF PY
+# pip install --no-cache-dir --upgrade --force-reinstall $jamfpy_pip_target

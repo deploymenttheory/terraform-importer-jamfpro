@@ -1,6 +1,7 @@
 import jamftf
 import jamfpy
 import os
+import json
 
 # Env Key
 ENV_KEY_TENANT_NAME = "PRO_TENANT_ID"
@@ -14,5 +15,10 @@ CLIENT = jamfpy.init_client(
     token_exp_threshold_mins=5
 )
 
-target_resources = []
-importer = jamftf.Importer(CLIENT, target_resources)
+TEST = {
+    "jamfpro_script"
+}
+
+importer = jamftf.Importer(CLIENT, targetted=[jamftf.Scripts(options=jamftf.Options(ignore_illegal_chars=True)), jamftf.Categories()])
+
+print(importer.HCL())
