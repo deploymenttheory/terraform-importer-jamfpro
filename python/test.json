@@ -1,0 +1,9 @@
+{
+    "jamfpro_script": {
+        "active": true,
+        "use_resource_type_as_name": true
+    },
+    "jamfpro_category": {
+        "active": true
+    }
+}
