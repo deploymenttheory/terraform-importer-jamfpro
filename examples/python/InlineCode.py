@@ -13,7 +13,7 @@ CLIENT = jamfpy.init_client(
     tenant_name=os.environ.get(ENV_KEY_TENANT_NAME),
     client_id=os.environ.get(ENV_KEY_CLIENT_ID),
     client_secret=os.environ.get(ENV_KEY_CLIENT_SECRET),
-    token_exp_threshold_mins=5
+    token_exp_threshold_mins=5,
 )
 
 
