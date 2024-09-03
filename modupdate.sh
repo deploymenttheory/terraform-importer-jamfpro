@@ -16,4 +16,4 @@ jamfpy_pip_target="git+$jamfpy_url@$jamfpy_target_version"
 pip install --no-cache-dir --upgrade --force-reinstall $jamftf_pip_target
 
 # JAMF PY
-pip install --no-cache-dir --upgrade --force-reinstall $jamfpy_pip_target
+# pip install --no-cache-dir --upgrade --force-reinstall $jamfpy_pip_target

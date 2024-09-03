@@ -3,8 +3,6 @@ import jamfpy
 import os
 import json
 
-import jamftf.exceptions
-
 # Env Key
 ENV_KEY_TENANT_NAME = "PRO_TENANT_ID"
 ENV_KEY_CLIENT_ID = "CLIENT_ID"
@@ -20,7 +18,7 @@ CLIENT = jamfpy.init_client(
 
 def main():
     # Define dir of config file
-    config_dir = "/Users/joseph/github/importer-terraform-jamfpro/examples/python/config.json"
+    config_dir = "/Users/joseph/github/importer/importer-terraform-jamfpro/examples/python/config.json"
 
     # Load .json file into a dict using json module
     with open(config_dir, "r") as file:
