@@ -8,6 +8,9 @@ ENV_KEY_TENANT_NAME = "PRO_TENANT_ID"
 ENV_KEY_CLIENT_ID = "CLIENT_ID"
 ENV_KEY_CLIENT_SECRET = "CLIENT_SECRET"
 
+# out path INCLUDING filename
+OUT_PATH = "/Users/joseph/github/importer/importer-terraform-jamfpro/testing.tf"
+
 # Client
 CLIENT = jamfpy.init_client(
     tenant_name=os.environ.get(ENV_KEY_TENANT_NAME),
@@ -30,8 +33,12 @@ def main():
     # Create a new Importer using targets
     importer = jamftf.Importer(client=CLIENT, targetted=targets)
 
-    # Print HCL from Importer (or do whatever you need to with it)
-    print(importer.HCL())
+    # Write HCL out to a file (or do what you want with it)
+    hcl = importer.HCL()
+    with open(OUT_PATH, "w") as f:
+        f.write(hcl)
+
+    print(hcl)
 
 
 

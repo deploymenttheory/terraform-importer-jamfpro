@@ -33,16 +33,18 @@ exclude = {
 }
 
 
-# Create an options object containing your exclusions
-opts = jamftf.Options(exclude_ids=exclude)
 
 # Define resources, validation setting and attach options defined earlier
-scripts = jamftf.Scripts(validate=True, options=opts)
-categories = jamftf.Categories(validate=False, options=opts)
+scripts = jamftf.Scripts(validate=False, exclude=exclude["jamfpro_script"])
+categories = jamftf.Categories(validate=False)
 
 # Create a new importer using the Jamf Resources you have made above
-importer = jamftf.Importer(CLIENT, targetted=[categories, scripts])
+importer = jamftf.Importer(CLIENT, targetted=[categories, scripts], debug=True)
 
 # Generate HCL from the imporer
-hcl = importer.HCL()
+hcl = importer.HCLd()
+
+for k in hcl:
+    with open(f"tf-{k}.tf", "w") as f:
+        f.write(hcl[k])
 
