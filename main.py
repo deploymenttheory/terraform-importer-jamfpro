@@ -17,11 +17,11 @@ CLIENT = jamfpy.init_client(
 )
 
 
+opts = jamftf.Options(use_resource_type_as_name=False)
+# scripts = jamftf.Scripts(validate=True, exclude=[7724, 7723, 7761, 7759, 7725, 7760], options=opts)
+# importer = jamftf.Importer(CLIENT, targetted=[scripts], debug=True)
 
-scripts = jamftf.Scripts(validate=True, exclude=[7724, 7723, 7761, 7759, 7725, 7760])
-importer = jamftf.Importer(CLIENT, targetted=[scripts], debug=True)
+# hcl = importer.HCL()
+# print(hcl)
 
-hcl = importer.HCL()
-print(hcl)
-
-
+print(opts.options())
