@@ -21,4 +21,4 @@ jobs:
 
 
             - name: List repository contents
-              run: ls -R
+              run: echo $JPRO_CLIENT_ID
