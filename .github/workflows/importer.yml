@@ -34,7 +34,7 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                 
-                git config --global url."https://${{ secrets.ACESS_TOKEN }}@github.com".insteadOf "https://github.com"
+                git config --global url."https://$PERSONAL_ACCESS_TOKEN@github.com".insteadOf "https://github.com"
                 python -m pip install --upgrade pip
                 pip install git+https://github.com/thejoeker12/jamfpy@v1.1.0
                 pip install git+https://github.com/deploymenttheory/jamftf-python-terraform-importer@v0.2.0
