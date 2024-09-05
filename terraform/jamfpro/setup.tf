@@ -41,5 +41,8 @@ variable "jamfpro_instance_fqdn" {
 
 variable "tf_workspace" {
   default = env("TF_WORKSPACE_ID")
-  
+}
+
+variable "tf_organization_id" {
+  default = env("TF_ORG_ID") 
 }
