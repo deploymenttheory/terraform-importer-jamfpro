@@ -31,6 +31,8 @@ jobs:
             - name: Install dependencies
               run: |
                 python -m pip install --upgrade pip
+                pip install git+https://github.com/deploymenttheory/jamftf-python-terraform-importer@latest
+                pip install git+https://github.com/thejoeker12/jamfpy@latest
                 pip install -r scripts/requirements.txt
 
             - name: Run Python script
