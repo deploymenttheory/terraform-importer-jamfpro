@@ -42,9 +42,13 @@ categories = jamftf.Categories(validate=False)
 importer = jamftf.Importer(CLIENT, targetted=[categories, scripts], debug=True)
 
 # Generate HCL from the imporer
-hcl = importer.HCLd()
+# hcl = importer.HCLd()
 
-for k in hcl:
-    with open(f"tf-{k}.tf", "w") as f:
-        f.write(hcl[k])
+# for k in hcl:
+#     with open(f"tf-{k}.tf", "w") as f:
+#         f.write(hcl[k])
 
+
+
+hcls = importer.HCLs()
+print(hcls)

@@ -17,3 +17,7 @@ __pycache__*
 
 # Auth
 .env
+
+# Test files
+test.py
+/examples/python/outputs

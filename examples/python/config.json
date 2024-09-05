@@ -7,7 +7,8 @@
             7725,
             7724,
             7760,
-            7761
+            7761,
+            7770
         ],
         "jamfpro_category": [
             224
@@ -17,7 +18,7 @@
         "jamfpro_script": {
             "active": true,
             "validate": true,
-            "use_resource_type_as_name": true
+            "use_resource_type_as_name": false
         },
         "jamfpro_category": {
             "active": true,
@@ -26,7 +27,8 @@
         },
         "jamfpro_policy": {
             "active": true,
-            "validate": false
+            "validate": true,
+            "use_resource_type_as_name": true
         }
     }
 }
