@@ -14,7 +14,7 @@ jobs:
             JPRO_CLIENT_SECRET: ${{ secrets.JPRO_CLIENT_SECRET }}
             JAMFTF_CONFIG_FP: ${{ vars.JAMFTF_CONFIG_FP }}
             JAMFTF_OUTPUT_DIR: ${{ vars.JAMFTF_OUTPUT_DIR }}
-            JAMFTF_DEBUG_MODE: false
+            JAMFTF_DEBUG_MODE: True
             
         steps:
             - name: "Checkout"
