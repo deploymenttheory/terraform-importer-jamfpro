@@ -22,4 +22,4 @@ jobs:
 
 
             - name: List repository contents
-              run: echo 
+              run: echo $JAMFTF_JPRO_TENANT_ID
