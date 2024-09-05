@@ -21,4 +21,3 @@ __pycache__*
 # Test files
 test.py
 /examples/python/outputs
-/importer_working_dir/outputs
