@@ -1,8 +1,20 @@
-Pre Requisites
+# Importer Usage Guide
 
-1. Venv
-Make sure you have an environment set up with the correct dependancies
-LIST HOW TO MAKE A VENV HERE
+## Prerequisites
 
-2. Config File
-Ensure you have a valid configuration file, following the exmaple
+### 1. (Virtual) Environment (venv)
+Make sure you have a/an (virtual) environment set up with the correct dependencies.
+Dependancies can be found in the scripts/requirements.txt file
+
+### 2. Environment Variables
+Have Env vars set. .env file example can be found in examples folder.
+
+### 3. Configuration File
+Have a valid configuration file. Configuration file example can be found in examples folder.
+
+### 4. Outputs
+Have a valid, pre-made outputs directory.
+
+
+## Execute
+Run /scripts/import_via_config_file.py via pipeline or manually.
