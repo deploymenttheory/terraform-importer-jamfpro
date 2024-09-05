@@ -40,6 +40,8 @@ jobs:
 
             - name: Commit back to Repo
               run: |
+                git config --global user.email "action@github.com"
+                git config --global user.name "Github Action"
                 git add importer_working_dir/outputs
                 git commit -m "Uploading output files"
                 git push
