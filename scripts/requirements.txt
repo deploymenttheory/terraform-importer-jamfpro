@@ -1,2 +1,2 @@
-jamftf>=0.1.0
-jamfpy>=0.1.0
+jamftf>=0.2.0
+jamfpy>=0.1.1
