@@ -26,7 +26,13 @@ jobs:
             - name: Set up Python
               uses: actions/setup-python@v4
               with:
-                python-version: '3.x'  # Specify the Python version you need
+                python-version: 'latest'
+
+            - name: Configure Git credentials
+              env:
+                PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+              run: |
+                git config --global url."https://${PERSONAL_ACCESS_TOKEN}@github.com/".insteadOf "https://github.com/"
 
             - name: Install dependencies
               run: |
