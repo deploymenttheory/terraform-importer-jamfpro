@@ -1,10 +1,8 @@
 terraform {
   cloud {
-
-    organization = "thejoeker"
-
+    organization = get
     workspaces {
-      name = "lbgsandbox"
+      name = var.TF_WORKSPACE_ID
     }
   }
 
@@ -17,7 +15,7 @@ terraform {
 }
 
 provider "jamfpro" {
-  jamfpro_instance_fqdn = "https://lbgsandbox.jamfcloud.com"
+  jamfpro_instance_fqdn = var.jamfpro_instance_fqdn
   auth_method = "oauth2"
   client_id = var.jamfpro_client_id
   client_secret = var.jamfpro_client_secret
@@ -28,11 +26,20 @@ provider "jamfpro" {
 variable "jamfpro_client_id" {
   description = "The Jamf Pro Client ID for authentication."
   sensitive   = true
-  default     = ""
+  default     = env("JAMFTF_CLIENT_ID")
 }
 
 variable "jamfpro_client_secret" {
   description = "The Jamf Pro Client Secret for authentication."
   sensitive   = true
-  default     = ""
+  default     = env("JAMFTF_CLIENT_SEFRET")
+}
+
+variable "jamfpro_instance_fqdn" {
+  default = env("JAMFTF_PRO_TENANT_ID")
+}
+
+variable "tf_workspace" {
+  default = env("TF_WORKSPACE_ID")
+  
 }
