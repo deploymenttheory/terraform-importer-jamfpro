@@ -33,7 +33,7 @@ jobs:
                 echo ${{ secrets.ACCESS_TOKEN }}
                 python -m pip install --upgrade pip
                 pip install git+https://github.com/thejoeker12/jamfpy
-                pip install git+https://${{ secrets.ACCESS_TOKEN }}github.com/deploymenttheory/jamftf-python-terraform-importer
+                pip install git+https://${{ secrets.ACCESS_TOKEN }}@github.com/deploymenttheory/jamftf-python-terraform-importer
                 pip install -r scripts/requirements.txt
 
             - name: Run Python script
