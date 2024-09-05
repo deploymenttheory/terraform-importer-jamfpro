@@ -30,7 +30,6 @@ jobs:
 
             - name: Install dependencies
               run: |
-                echo ${{ secrets.ACCESS_TOKEN }}
                 python -m pip install --upgrade pip
                 pip install git+https://github.com/thejoeker12/jamfpy
                 pip install git+https://${{ secrets.ACCESS_TOKEN }}@github.com/deploymenttheory/jamftf-python-terraform-importer
@@ -38,3 +37,9 @@ jobs:
 
             - name: Run Python script
               run: python scripts/import_via_config_file.py
+
+            - name: Commit back to Repo
+              run: |
+                git add importer_working_dir/outputs
+                git commit -m "Uploading output files"
+                git push
