@@ -78,7 +78,7 @@ def write_out(hcl_dict: dict) -> None:
         output_fn = k + ".tf"
         full_path = f"{ENV['output_dir']}/{output_fn}"
 
-        with open(full_path, "w", encoding="UTF-8") as f:
+        with open(full_path, "w+", encoding="UTF-8") as f:
             f.write(v)
 
 def main():
