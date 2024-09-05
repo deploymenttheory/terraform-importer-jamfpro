@@ -78,6 +78,8 @@ def write_out(hcl_dict: dict) -> None:
         output_fn = k + ".tf"
         full_path = f"{ENV['output_dir']}/{output_fn}"
 
+        print(f"creating {full_path}")
+
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
 
         with open(full_path, "w+", encoding="UTF-8") as f:
