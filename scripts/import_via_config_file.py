@@ -46,7 +46,7 @@ def get_client():
         tenant_name=ENV["tenant_id"],
         client_id=ENV["client_id"],
         client_secret=ENV["client_secret"],
-        logging_level=level
+        logging_level=40
     )
 
 
@@ -83,6 +83,7 @@ def write_out(hcl_dict: dict) -> None:
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
 
         with open(full_path, "w+", encoding="UTF-8") as f:
+
             f.write(v)
 
 def main():

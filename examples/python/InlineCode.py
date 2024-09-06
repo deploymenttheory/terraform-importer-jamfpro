@@ -3,9 +3,9 @@ import jamfpy
 import os
 
 # Env Key
-ENV_KEY_TENANT_NAME = "PRO_TENANT_ID"
-ENV_KEY_CLIENT_ID = "CLIENT_ID"
-ENV_KEY_CLIENT_SECRET = "CLIENT_SECRET"
+ENV_KEY_TENANT_NAME = "JAMFTF_JPRO_TENANT_ID"
+ENV_KEY_CLIENT_ID = "JPRO_CLIENT_ID"
+ENV_KEY_CLIENT_SECRET = "JPRO_CLIENT_SECRET"
 
 
 # Client
@@ -32,8 +32,6 @@ exclude = {
     ]
 }
 
-
-
 # Define resources, validation setting and attach options defined earlier
 scripts = jamftf.Scripts(validate=False, exclude=exclude["jamfpro_script"])
 categories = jamftf.Categories(validate=False)
@@ -41,14 +39,6 @@ categories = jamftf.Categories(validate=False)
 # Create a new importer using the Jamf Resources you have made above
 importer = jamftf.Importer(CLIENT, targetted=[categories, scripts], debug=True)
 
-# Generate HCL from the imporer
-# hcl = importer.HCLd()
-
-# for k in hcl:
-#     with open(f"tf-{k}.tf", "w") as f:
-#         f.write(hcl[k])
-
-
-
 hcls = importer.HCLs()
+
 print(hcls)
