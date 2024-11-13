@@ -63,18 +63,15 @@ def write_out(hcl_dict: dict) -> None:
     """
     Uses HCL dict to create filenames and populate them with import statemens
     """
-    for k, v in hcl_dict.items():
+    for res_type, v in hcl_dict.items():
 
-        output_fn = k + ".tf"
-        full_path = f"{ENV['output_dir']}/{output_fn}"
+        path = f"{WORKING_DIR}/{res_type}.tf"
 
-        print(f"creating {full_path}")
+        os.mkdir(os.path.dirname(path), exist_ok=True)
 
-        os.makedirs(os.path.dirname(full_path), exist_ok=True)
-
-        with open(full_path, "w+", encoding="UTF-8") as f:
-
+        with open(path, "w+", encoding="UTF-8") as f:
             f.write(v)
+
 
 def main():
     """
