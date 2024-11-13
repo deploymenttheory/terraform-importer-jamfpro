@@ -7,46 +7,38 @@ import os
 import jamftf
 import jamfpy
 
-ENV_KEYS = {
-    "tenant_id": "JAMFTF_JPRO_TENANT_ID",
-    "client_id": "JPRO_CLIENT_ID",
-    "client_secret": "JPRO_CLIENT_SECRET",
-    "config_file_path": "JAMFTF_CONFIG_FP",
-    "output_dir": "JAMFTF_OUTPUT_DIR",
-    "debug_mode": "JAMFTF_DEBUG_MODE"
-}
 
-def env_vars() -> dict:
+# Consts
+CONFIG_FN = "jamftf_config.json"
+
+# Environment vars
+JP_TENANT_NAME = os.environ.get("JP_TENANT_NAME")
+JP_CLIENT_ID = os.environ.get("JP_CLIENT_ID")
+JP_CLIENT_SECRET = os.environ.get("JP_CLIENT_SECRET")
+WORKING_DIR = os.environ.get("WORKING_DIR")
+
+
+def check_env():
     """
-    Loops through ENV_KEYS and retrieves values from the env
-
-    Will raise a KeyError if any vars are empty or unset.
+    check_env ensures no env vars are empty or unset.
+    Raises KeyError if one is.
     """
-    out = {}
-    for j, k in ENV_KEYS.items():
-        val = os.environ.get(k)
+    env_vars = [
+        JP_TENANT_NAME,
+        JP_CLIENT_ID,
+        JP_CLIENT_SECRET,
+        WORKING_DIR
+    ]
 
-        if val is None or val == "":
-            raise KeyError("missing environment var: %s, %s", j, k)
+    if any(i == "" or i is None for i in env_vars):
+        raise KeyError("one or more env vars are empty")
 
-        out[j] = val
 
-    return out
-
-ENV = env_vars()
-
-def get_client():
-    """
-    Inits a base config jamfpy client for API operations
-    """
-
-    level = 10 if ENV["debug_mode"].lower() == "true" else 30
-
-    return jamfpy.init_client(
-        tenant_name=ENV["tenant_id"],
-        client_id=ENV["client_id"],
-        client_secret=ENV["client_secret"],
-        logging_level=40
+JP_CLIENT = jamfpy.init_client(
+        tenant_name=JP_TENANT_NAME,
+        client_id=JP_CLIENT_ID,
+        client_secret=JP_CLIENT_SECRET,
+        logging_level=30
     )
 
 
@@ -56,14 +48,12 @@ def get_hcl() -> dict:
 
     Importer generates the HCL and returns in dict format
     """
-    target_resources = jamftf.parse_config_file(ENV["config_file_path"])
-
-    debug = ENV["debug_mode"].lower() == "true"
+    target_resources = jamftf.parse_config_file(f"{WORKING_DIR}/{CONFIG_FN}")
 
     importer = jamftf.Importer(
-        client=get_client(),
+        client=JP_CLIENT(),
         targetted=target_resources,
-        debug=debug
+        debug=False
     )
 
     return importer.HCLd()
@@ -90,6 +80,8 @@ def main():
     """
     gets & writes hcl to files
     """
+    check_env()
+
     write_out(get_hcl())
 
 
