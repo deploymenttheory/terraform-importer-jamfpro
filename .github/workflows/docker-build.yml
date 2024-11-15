@@ -19,12 +19,12 @@ jobs:
       
       - name: Build and push
         uses: docker/build-push-action@v5
+        env:
+            PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
           context: .
           file: ./docker/python
           push: true
-          secrets: |
-            PAT_TOKEN=${{ secrets.PAT_TOKEN }}
 
           tags: |
             ghcr.io/${{ github.repository }}/python:latest
