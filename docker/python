@@ -3,7 +3,7 @@ FROM python:3.13-alpine
 WORKDIR /app
 COPY ./requirements.txt .
 ARG PAT_TOKEN
-ENV PAT_TOKEN=${PAT_TOKEN}
+ENV PAT_TOKEN=$PAT_TOKEN
 
 RUN apk add --no-cache git
 RUN pip install --no-cache-dir "git+https://$PAT_TOKEN@github.com/deploymenttheory/jamftf-python-terraform-importer@main#egg=jamftf"
