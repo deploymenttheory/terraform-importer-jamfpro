@@ -43,6 +43,9 @@ jobs:
                 cd importer_working_dir/
                 terraform fmt
 
+            - name: Terraform init
+              run: terraform init
+
             - name: Terraform plan-generate-config
               run: |
                 cd importer_working_dir/
