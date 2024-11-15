@@ -42,7 +42,6 @@ jobs:
             - name: Terraform fmt
               run: |
                 cd importer_working_dir/
-                terraform login
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="out.tf"
