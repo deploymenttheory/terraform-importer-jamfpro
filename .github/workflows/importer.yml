@@ -32,23 +32,23 @@ jobs:
                 pip install git+https://${{ secrets.PAT_TOKEN }}@github.com/deploymenttheory/jamftf-python-terraform-importer@v0.2.1
                 pip install requests
 
-            # - name: Run Python script
-            #   run: python scripts/import_via_config_file.py
+            - name: Run Python script
+              run: python scripts/import_via_config_file.py
 
-            # - name: Install Terraform
-            #   uses: hashicorp/setup-terraform@v3.1.2
-            #   with:
-            #     terraform_version: latest
+            - name: Install Terraform
+              uses: hashicorp/setup-terraform@v3.1.2
+              with:
+                terraform_version: latest
 
-            # - name: Install Terraform and run FMT
-            #   run: |
-            #     cd importer_working_dir/outputs
-            #     terraform fmt
+            - name: Terraform fmt
+              run: |
+                cd importer_working_dir/outputs
+                terraform fmt
               
-            # - name: Commit back to Repo
-            #   run: |
-            #     git config --global user.email "action@github.com"
-            #     git config --global user.name "Github Action"
-            #     git add importer_working_dir/outputs
-            #     git commit -m "Uploading output files"
-            #     git push
+            - name: Commit back to Repo
+              run: |
+                git config --global user.email "action@github.com"
+                git config --global user.name "Github Action"
+                git add importer_working_dir/
+                git commit -m "Uploading output files"
+                git push
