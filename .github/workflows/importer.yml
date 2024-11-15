@@ -40,7 +40,7 @@ jobs:
 
             - name: Terraform fmt
               run: |
-                cd importer_working_dir/outputs
+                cd importer_working_dir/
                 terraform fmt
               
             - name: Commit back to Repo
