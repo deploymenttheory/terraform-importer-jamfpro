@@ -9,7 +9,7 @@ import jamfpy
 
 
 # Consts
-CONFIG_FN = "jamftf_config.json"
+CONFIG_FN = "config.json"
 
 # Environment vars
 JP_TENANT_NAME = os.environ.get("JP_TENANT_NAME")
@@ -51,7 +51,7 @@ def get_hcl() -> dict:
     target_resources = jamftf.parse_config_file(f"{WORKING_DIR}/{CONFIG_FN}")
 
     importer = jamftf.Importer(
-        client=JP_CLIENT(),
+        client=JP_CLIENT,
         targetted=target_resources,
         debug=False
     )
@@ -66,8 +66,6 @@ def write_out(hcl_dict: dict) -> None:
     for res_type, v in hcl_dict.items():
 
         path = f"{WORKING_DIR}/{res_type}.tf"
-
-        os.mkdir(os.path.dirname(path), exist_ok=True)
 
         with open(path, "w+", encoding="UTF-8") as f:
             f.write(v)

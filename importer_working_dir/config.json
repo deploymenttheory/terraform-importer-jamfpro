@@ -1,16 +1,5 @@
 {
     "exclude_ids": {
-        "jamfpro_script": [
-            7761,
-            7759,
-            7723,
-            7725,
-            7724,
-            7760,
-            7761,
-            7770,
-            7771
-        ],
         "jamfpro_category": [
             224
         ]
@@ -19,7 +8,7 @@
         "jamfpro_script": {
             "active": true,
             "validate": true,
-            "use_resource_type_as_name": false
+            "use_resource_type_as_name": true
         },
         "jamfpro_category": {
             "active": true,
