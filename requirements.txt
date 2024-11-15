@@ -1,2 +1,2 @@
-git+https://github.com/deploymenttheory/jamftf-python-terraform-importer@main
-git+https://github.com/thejoeker12/jamfpy@main
+git+https://github.com/deploymenttheory/jamftf-python-terraform-importer.git@main#egg=jamftf
+git+https://github.com/thejoeker12/jamfpy.git@main#egg=jamfpy
