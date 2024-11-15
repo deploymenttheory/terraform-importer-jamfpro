@@ -6,7 +6,7 @@ ARG PAT_TOKEN
 ENV PAT_TOKEN=${PAT_TOKEN}
 
 RUN apk add --no-cache git
-# RUN pip install --no-cache-dir "git+https://$PAT_TOKEN@github.com/deploymenttheory/jamftf-python-terraform-importer@main#egg=jamftf"
+RUN pip install --no-cache-dir "git+https://$PAT_TOKEN@github.com/deploymenttheory/jamftf-python-terraform-importer@main#egg=jamftf"
 RUN pip install --no-cache-dir "git+https://github.com/thejoeker12/jamfpy-python-sdk-jamfpro@main#egg=jamfpy"
 
 
