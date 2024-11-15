@@ -42,6 +42,11 @@ jobs:
               run: |
                 cd importer_working_dir/
                 terraform fmt
+
+            - name: Terraform plan-generate-config
+              run: |
+                cd importer_working_dir/
+                terraform plan --generate-config-out="out.tf"
               
             - name: Commit back to Repo
               run: |
