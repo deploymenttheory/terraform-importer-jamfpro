@@ -3,6 +3,8 @@ FROM python:3.13-slim
 WORKDIR /app
 COPY ./requirements.txt .
 
+RUN apk add --no-cache git
+
 # install dependencies
 # --no-cache-dir flag reduces the image size
 RUN pip install --no-cache-dir -r requirements.txt
