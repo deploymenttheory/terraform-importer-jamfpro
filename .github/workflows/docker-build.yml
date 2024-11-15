@@ -23,6 +23,9 @@ jobs:
           context: .
           file: ./docker/python
           push: true
+          secrets: |
+            GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+
           tags: |
             ghcr.io/${{ github.repository }}/python:latest
             ghcr.io/${{ github.repository }}/python:${{ github.sha }}
