@@ -1,4 +1,4 @@
-name: Importer
+name: Import Config From File
 
 on:
     workflow_dispatch:
