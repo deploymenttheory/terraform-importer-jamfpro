@@ -9,12 +9,10 @@ jobs:
         runs-on: ubuntu-latest
         environment: importer-lbgsandbox
         env:
-            JAMFTF_JPRO_TENANT_ID: ${{ vars.JAMFTF_JPRO_TENANT_ID }}
-            JPRO_CLIENT_ID: ${{ secrets.JPRO_CLIENT_ID }}
-            JPRO_CLIENT_SECRET: ${{ secrets.JPRO_CLIENT_SECRET }}
-            JAMFTF_CONFIG_FP: ${{ vars.JAMFTF_CONFIG_FP }}
-            JAMFTF_OUTPUT_DIR: ${{ vars.JAMFTF_OUTPUT_DIR }}
-            JAMFTF_DEBUG_MODE: True
+            JP_TENANT_NAME: ${{ vars.JP_TENANT_NAME }}
+            JP_CLIENT_ID: ${{ secrets.JP_CLIENT_ID }}
+            JP_CLIENT_SECRET: ${{ secrets.JP_CLIENT_SECRET }}
+            WORKING_DIR: ${{ vars.WORKING_DIR }}
             
         steps:
             - name: "Checkout"
