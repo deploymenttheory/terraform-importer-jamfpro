@@ -26,7 +26,7 @@ jobs:
           file: ./docker/python
           push: true
           secrets: |
-            PAT_TOKEN=${{ secrets.PAT_TOKEN }}
+            pat_token=${{ secrets.PAT_TOKEN }}
 
           tags: |
             ghcr.io/${{ github.repository }}/python:latest
