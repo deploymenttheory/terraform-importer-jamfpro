@@ -13,7 +13,7 @@ jobs:
             JP_CLIENT_ID: ${{ secrets.JP_CLIENT_ID }}
             JP_CLIENT_SECRET: ${{ secrets.JP_CLIENT_SECRET }}
             WORKING_DIR: ${{ vars.WORKING_DIR }}
-            
+
         steps:
             - name: "Checkout"
               uses: actions/checkout@v4.1.1
@@ -45,7 +45,8 @@ jobs:
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="out.tf"
-              
+
+
             - name: Commit back to Repo
               run: |
                 git config --global user.email "action@github.com"
@@ -61,8 +62,12 @@ jobs:
                 repository: "deploymenttheory/terraform-demo-jamfpro-v2"
                 token: ${{ secrets.PAT_TOKEN }}
 
+
             - name: test
               run: |
+                ls
+                cd ..
+                ls
                 cd ..
                 ls
 
