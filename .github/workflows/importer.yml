@@ -53,3 +53,14 @@ jobs:
                 git add importer_working_dir/
                 git commit -m "Uploading output files"
                 git push
+
+
+            - name: Checkout2
+              uses: actions/checkout@v4
+              with:
+                repository: "deploymenttheory/terraform-demo-jamfpro-v2"
+                token: ${{ secrets.PAT_TOKEN }}
+
+            - name: test
+              run: ls
+
