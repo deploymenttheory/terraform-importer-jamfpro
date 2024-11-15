@@ -4,11 +4,13 @@ WORKDIR /app
 COPY ./requirements.txt .
 
 RUN apk add --no-cache git
-ARG PAT_TOKEN
+
+RUN --mount=type=secret,id=PAT_TOKEN,env=PAT_TOKEN
+
 RUN echo "TEST MESSAGE"
 RUN echo $PAT_TOKEN
 
-RUN pip install --no-cache-dir "git+https://${PAT_TOKEN}@github.com/deploymenttheory/jamftf-python-terraform-importer@v0.2.1"
+RUN pip install --no-cache-dir "git+https://$PAT_TOKEN@github.com/deploymenttheory/jamftf-python-terraform-importer@v0.2.1"
 RUN pip install --no-cache-dir "git+https://github.com/thejoeker12/jamfpy-python-sdk-jamfpro@main#egg=jamfpy"
 
 
