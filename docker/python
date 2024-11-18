@@ -3,7 +3,7 @@
 FROM python:3.13-alpine
 
 WORKDIR /app
-COPY ./requirements.txt .
+COPY ./scripts/requirements.txt .
 
 ENV PRODUCT="terraform"
 ARG VERSION
@@ -14,7 +14,7 @@ RUN --mount=type=secret,id=pat_token,env=PAT_TOKEN \
     pip install --no-cache-dir "git+https://$PAT_TOKEN@github.com/deploymenttheory/jamftf-python-terraform-importer@v0.2.1"
 
 RUN pip install --no-cache-dir "git+https://github.com/thejoeker12/jamfpy-python-sdk-jamfpro@main#egg=jamfpy"
-RUN pip install -r scripts/requirements.txt
+RUN pip install -r requirements.txt
 
 
  
