@@ -42,9 +42,6 @@ jobs:
                 cd importer_working_dir/
                 terraform init
                 terraform fmt
-                cat jamfpro_policy.tf
-                echo "---"
-                cat jamfpro_script.tf
                 terraform plan --generate-config-out="${{ inputs.config_out_fn }}"
 
             - name: Commit back to Repo
