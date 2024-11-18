@@ -6,6 +6,7 @@ COPY ./requirements.txt .
 RUN apk add --no-cache git
 
 RUN --mount=type=secret,id=pat_token,env=PAT_TOKEN ...
+ARG $PAT_TOKEN=$pat_token
 
 RUN echo "TEST MESSAGE"
 RUN echo $PAT_TOKEN
