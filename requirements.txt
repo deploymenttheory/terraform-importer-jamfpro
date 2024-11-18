@@ -1,2 +1,1 @@
-git+https://${{PAT_TOKEN}}@github.com/deploymenttheory/jamftf-python-terraform-importer@main#egg=jamftf
-git+https://${{PAT_TOKEN}}@github.com/thejoeker12/jamfpy@main#egg=jamfpy
+requests
