@@ -12,7 +12,7 @@ terraform {
 
     workspaces {
       # This is only relevant for CLI calls and is ignored by API calls via pipelines, therefore it can be safely left here.
-      name = "terraform-demo-jamfpro-v2-sandbox"
+      name = "terraform-demo-jamfpro-v2-staging"
     }
   }
 }
