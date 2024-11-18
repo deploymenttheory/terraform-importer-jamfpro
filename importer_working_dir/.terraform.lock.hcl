@@ -5,6 +5,7 @@ provider "registry.terraform.io/deploymenttheory/jamfpro" {
   version     = "0.4.3"
   constraints = "~> 0.4.0"
   hashes = [
+    "h1:5lsrSxcgyZYauvWDVDN9B7hVMk72TDRYyJ2d1z46ryE=",
     "h1:iZ3Gv8Di0bgV4mTg6FjH/Z5bZVGdy2E8ArV86OIYDmE=",
     "zh:23f046aeb16cb2fd69d6adf0e88d46150d4cdd35926749bda456aaa5e79394bc",
     "zh:2c2ad57e491d24501c247f0c9defa372bb5389426dd46facfee204e46939ac72",
