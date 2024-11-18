@@ -3,6 +3,11 @@ run-name: "Build New Python Docker Image"
 
 on:
   workflow_dispatch:
+    inputs:
+      terraform_version:
+        type: string
+        default: "1.9.8"
+
 
 jobs:
   build-and-push:
@@ -19,8 +24,6 @@ jobs:
       
       - name: Build and push
         uses: docker/build-push-action@v5
-        env:
-            PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
           context: .
           file: ./docker/python
@@ -28,6 +31,8 @@ jobs:
           secrets: |
             pat_token=${{ secrets.PAT_TOKEN }}
 
+          build-args: VERSION=${{ inputs.terraform_version }}
+
           tags: |
-            ghcr.io/${{ github.repository }}/python:latest
-            ghcr.io/${{ github.repository }}/python:${{ github.sha }}
+            ghcr.io/${{ github.repository }}/python_tf:latest
+            ghcr.io/${{ github.repository }}/python_tf:${{ github.sha }}

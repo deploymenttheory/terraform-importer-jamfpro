@@ -8,7 +8,11 @@ jobs:
         name: "Import-Run"
         runs-on: ubuntu-latest
         environment: importer-lbgsandbox
+        container:
+              image: ghcr.io/${{ github.repository }}/python:latest
+              
         env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
             JP_TENANT_NAME: ${{ vars.JP_TENANT_NAME }}
             JP_CLIENT_ID: ${{ secrets.JP_CLIENT_ID }}
             JP_CLIENT_SECRET: ${{ secrets.JP_CLIENT_SECRET }}
