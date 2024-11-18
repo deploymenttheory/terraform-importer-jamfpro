@@ -21,6 +21,7 @@ jobs:
             JP_CLIENT_ID: ${{ secrets.JP_CLIENT_ID }}
             JP_CLIENT_SECRET: ${{ secrets.JP_CLIENT_SECRET }}
             WORKING_DIR: ${{ vars.WORKING_DIR }}
+            TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_KEY }}
 
         steps:
             - name: "Checkout"
@@ -32,6 +33,7 @@ jobs:
             - name: Terraform
               run: |
                 cd importer_working_dir/
+                terraform login
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="${{ inputs.config_out_fn }}"
