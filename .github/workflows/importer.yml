@@ -1,11 +1,11 @@
-name: Import Config From File
+name: Import By Config File
 
 on:
     workflow_dispatch:
       inputs:
         config_out_fn:
           type: string
-          default: "out.tf"
+          default: "generated_config.tf"
 
 jobs:
     importer:
@@ -24,19 +24,18 @@ jobs:
             TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_KEY }}
 
         steps:
-            - name: "Checkout"
+            - name: Checkout
               uses: actions/checkout@v4.1.1
 
-            - name: Run Python script
+            - name: Run Import Utility
               run: python scripts/import_via_config_file.py
 
-            - name: Terraform
+            - name: Terraform Generate Plan Config
               run: |
                 cd importer_working_dir/
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="${{ inputs.config_out_fn }}"
-
 
             - name: Commit back to Repo
               run: |
