@@ -41,6 +41,7 @@ jobs:
               run: |
                 cd importer_working_dir/
                 cat jamfpro_policy.tf
+                cat jamfpro_script.tf
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="${{ inputs.config_out_fn }}"
