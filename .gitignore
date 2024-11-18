@@ -21,8 +21,9 @@ __pycache__*
 test.py
 /examples/python/outputs
 
+**/.terraform.lock.hcl
+
 .terraform/
 /.terraform/
 
 
-**/.terraform.lock.hcl

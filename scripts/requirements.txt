@@ -1,3 +1,1 @@
-jamftf>=0.2.0
-jamfpy>=0.1.1
-requests>=2.32.3
+requests
