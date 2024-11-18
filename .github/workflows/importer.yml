@@ -7,11 +7,18 @@ on:
           type: string
           default: "generated_config.tf"
 
+        environment:
+          type: choice
+          options:
+            - "importer-lbgsandbox"
+            - "importer-tfstaging"
+          default: "importer-tfstaging"
+
 jobs:
     importer:
         name: "Import-Run"
         runs-on: ubuntu-latest
-        environment: importer-lbgsandbox
+        environment: ${{ inputs.environment }}
         container:
               image: ghcr.io/${{ github.repository }}/python_tf:latest
 
