@@ -33,7 +33,6 @@ jobs:
             - name: Terraform
               run: |
                 cd importer_working_dir/
-                terraform login
                 terraform init
                 terraform fmt
                 terraform plan --generate-config-out="${{ inputs.config_out_fn }}"
