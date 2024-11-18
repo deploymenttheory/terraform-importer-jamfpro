@@ -61,7 +61,7 @@ def get_hcl() -> dict:
 
 def write_out(hcl_dict: dict) -> None:
     """
-    Uses HCL dict to create filenames and populate them with import statemens
+    Uses HCL dict to create filenames and populate them with import statements
     """
     for res_type, v in hcl_dict.items():
 
